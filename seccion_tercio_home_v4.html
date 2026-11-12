@@ -1,0 +1,501 @@
+<!-- TERCIO v3 — Sección home towinia.es — Infografía interactiva -->
+<style>
+/* ── Reset y base ── */
+.t3 *{box-sizing:border-box;margin:0;padding:0}
+.t3 {
+  --c:  #00B4D8;
+  --cb: #0077B6;
+  --go: #C9A03D;
+  --gn: #10B981;
+  --rd: #E24B4A;
+  --pu: #7C6FE0;
+  --bg: #050A14;
+  --k1: #0C1422;
+  --k2: #111C2E;
+  --bo: rgba(0,180,216,.14);
+  --bo2:rgba(0,180,216,.30);
+  --tx: #E2E8F0;
+  --mu: #C4CDD9;
+  --di: #7A8899;
+  font-family:'Barlow',sans-serif;
+  background:var(--bg);
+  color:var(--tx);
+  padding:72px 0 80px;
+  overflow:hidden;
+}
+.t3-in{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* ── Cabecera ── */
+.t3-tag{display:inline-block;border:1px solid var(--c);border-radius:20px;padding:3px 14px;font-size:11px;color:var(--c);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px}
+.t3 h2.t3-h{font-size:clamp(26px,4vw,44px);font-weight:800;color:#fff;line-height:1.15;margin:0 0 10px;letter-spacing:-.5px}
+.t3 h2.t3-h span{color:var(--c)}
+.t3-sub{font-size:15px;color:var(--mu);max-width:600px;margin-bottom:52px;line-height:1.6}
+
+/* ── 3 métricas ── */
+.t3-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:52px}
+.t3-num{background:var(--k1);border:1px solid var(--bo);border-top:3px solid var(--c);border-radius:10px;padding:22px 18px;text-align:center;transition:border-color .25s,transform .25s,box-shadow .25s;cursor:default}
+.t3-num:hover{border-color:var(--c);border-top-color:var(--c);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,180,216,.12)}
+.t3-num .n{font-size:40px;font-weight:800;color:var(--c);line-height:1}
+.t3-num .l{font-size:12px;color:var(--mu);margin-top:5px}
+.t3-num .sl{font-size:11px;color:var(--di);margin-top:3px}
+
+/* ── Sección título interior ── */
+.t3-sect{font-size:11px;font-weight:700;color:var(--di);text-transform:uppercase;letter-spacing:.14em;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.t3-sect::after{content:'';flex:1;height:1px;background:var(--bo)}
+
+/* ── SECUENCIA DE OPERACIÓN ── */
+.t3-seq{display:flex;align-items:stretch;gap:0;margin-bottom:52px;overflow-x:auto;padding-bottom:8px}
+.t3-step{flex:1;min-width:160px;background:var(--k1);border:1px solid var(--bo);padding:20px 16px;position:relative;cursor:default;transition:background .25s,border-color .25s,transform .2s}
+.t3-step:first-child{border-radius:12px 0 0 12px}
+.t3-step:last-child{border-radius:0 12px 12px 0}
+.t3-step:hover{background:var(--k2);border-color:var(--bo2);transform:translateY(-3px);z-index:2}
+.t3-step-num{font-size:10px;font-weight:700;color:var(--di);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.t3-step-ico{font-size:24px;margin-bottom:8px}
+.t3-step-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
+.t3-step-desc{font-size:11.5px;color:var(--mu);line-height:1.5}
+.t3-step-stat{font-size:11px;color:var(--c);font-weight:600;margin-top:8px}
+/* flecha entre steps */
+.t3-arr{display:flex;align-items:center;justify-content:center;padding:0;color:var(--di);font-size:18px;flex-shrink:0;width:24px;position:relative;z-index:1;background:var(--bg)}
+.t3-arr::before{content:'→';color:var(--di)}
+
+/* ── ARQUITECTURA DE AGENTES ── */
+.t3-arch{margin-bottom:52px}
+.t3-arch-grid{display:flex;flex-direction:column;gap:12px}
+.t3-agent{display:flex;gap:0;border:1px solid var(--bo);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .25s,box-shadow .25s}
+.t3-agent:hover{border-color:var(--bo2);box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.t3-agent-color{width:6px;flex-shrink:0}
+.t3-agent-main{flex:1;padding:18px 20px;display:flex;align-items:center;gap:16px;background:var(--k1);transition:background .25s}
+.t3-agent:hover .t3-agent-main{background:var(--k2)}
+.t3-agent-ico{font-size:26px;flex-shrink:0}
+.t3-agent-info{flex:1}
+.t3-agent-name{font-size:15px;font-weight:800;color:#fff;margin-bottom:2px;display:flex;align-items:center;gap:8px}
+.t3-agent-model{font-size:11px;color:var(--mu);margin-bottom:4px}
+.t3-agent-desc{font-size:12.5px;color:var(--mu);line-height:1.5}
+.t3-agent-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.t3-tag-pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.t3-tag-c{background:rgba(0,180,216,.12);color:var(--c)}
+.t3-tag-g{background:rgba(16,185,129,.1);color:var(--gn)}
+.t3-tag-o{background:rgba(201,160,61,.1);color:var(--go)}
+.t3-tag-r{background:rgba(226,75,74,.1);color:var(--rd)}
+.t3-tag-p{background:rgba(124,111,224,.1);color:var(--pu)}
+.t3-agent-stat{text-align:right;flex-shrink:0}
+.t3-agent-stat .sv{font-size:22px;font-weight:800;line-height:1}
+.t3-agent-stat .sl{font-size:10px;color:var(--di);margin-top:2px}
+/* conector entre agentes */
+.t3-connector{display:flex;align-items:center;justify-content:center;gap:8px;padding:4px 0;font-size:11px;color:var(--di)}
+.t3-connector::before,.t3-connector::after{content:'';flex:1;max-width:80px;height:1px;background:var(--bo);display:block}
+
+/* ── CAPELLÁN — bloque especial ── */
+.t3-capelan{background:linear-gradient(135deg,rgba(201,160,61,.05) 0%,var(--k1) 60%);border:1px solid rgba(201,160,61,.22);border-radius:12px;padding:24px 22px;margin-bottom:52px;cursor:default;transition:border-color .25s,box-shadow .25s}
+.t3-capelan:hover{border-color:rgba(201,160,61,.45);box-shadow:0 8px 28px rgba(201,160,61,.08)}
+.t3-capelan-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.t3-capelan-ico{font-size:32px}
+.t3-capelan-title{font-size:16px;font-weight:800;color:var(--go)}
+.t3-capelan-sub{font-size:12px;color:var(--mu)}
+.t3-capelan-flow{display:flex;align-items:center;gap:0;flex-wrap:wrap}
+.t3-cf-step{background:rgba(201,160,61,.07);border:1px solid rgba(201,160,61,.15);border-radius:8px;padding:12px 14px;flex:1;min-width:130px;transition:background .2s,border-color .2s}
+.t3-cf-step:hover{background:rgba(201,160,61,.14);border-color:rgba(201,160,61,.3)}
+.t3-cf-step-t{font-size:12px;font-weight:700;color:var(--go);margin-bottom:4px}
+.t3-cf-step-d{font-size:11px;color:var(--mu);line-height:1.45}
+.t3-cf-arr{padding:0 8px;color:rgba(201,160,61,.4);font-size:16px;flex-shrink:0}
+.t3-capelan-lema{margin-top:16px;padding:10px 14px;border-left:3px solid rgba(201,160,61,.4);font-size:12px;color:var(--mu);font-style:italic}
+.t3-capelan-lema strong{color:var(--go);font-style:normal}
+
+/* ── PLANES ── */
+.t3-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
+.t3-plan{background:var(--k1);border:1px solid var(--bo);border-radius:14px;padding:26px 22px;position:relative;cursor:default;transition:border-color .25s,transform .2s,box-shadow .25s}
+.t3-plan:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.t3-plan.feat{border-color:var(--c);background:linear-gradient(160deg,#0D1E35 0%,#0D1525 100%)}
+.t3-plan.feat:hover{box-shadow:0 16px 40px rgba(0,180,216,.15)}
+.t3-pbadge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--c);color:#050A14;font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase;letter-spacing:.08em}
+.t3-pname{font-size:12px;color:var(--c);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.t3-pprice{font-size:34px;font-weight:800;color:#fff;line-height:1;margin-bottom:4px}
+.t3-pprice span{font-size:13px;font-weight:400;color:var(--di)}
+.t3-pdesc{font-size:12px;color:var(--mu);margin-bottom:14px;line-height:1.5}
+.t3-plan hr{border:none;border-top:1px solid var(--bo);margin:12px 0}
+.t3-fi{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:12px;color:var(--mu);line-height:1.4}
+.t3-fi::before{content:'✓';color:var(--gn);font-weight:700;flex-shrink:0;margin-top:1px}
+.t3-fi.no{color:var(--di)}
+.t3-fi.no::before{content:'—';color:var(--di)}
+
+/* ── CTA ── */
+.t3-cta{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--k2) 0%,rgba(0,119,182,.1) 100%);border:1px solid var(--bo2);border-radius:14px;padding:26px 30px;gap:20px;flex-wrap:wrap;transition:border-color .25s}
+.t3-cta:hover{border-color:var(--c)}
+.t3-cta h3{font-size:17px;font-weight:700;color:#fff;margin:0 0 4px}
+.t3-cta p{font-size:13px;color:var(--mu);margin:0;max-width:460px}
+.t3-cta p strong{color:var(--c)}
+.t3-btn{display:inline-block;padding:12px 28px;background:var(--c);color:#050A14;font-size:13px;font-weight:700;border-radius:6px;text-decoration:none;white-space:nowrap;text-transform:uppercase;letter-spacing:.06em;transition:background .2s,transform .15s}
+.t3-btn:hover{background:#00CFE8;transform:scale(1.03)}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .t3-plans{grid-template-columns:1fr}
+  .t3-nums{grid-template-columns:repeat(3,1fr)}
+  .t3-seq{gap:0}
+  .t3-capelan-flow{flex-direction:column}
+  .t3-cf-arr{transform:rotate(90deg);align-self:center}
+}
+@media(max-width:600px){
+  .t3-nums{grid-template-columns:repeat(2,1fr)}
+  .t3-agent-main{flex-wrap:wrap}
+  .t3-agent-stat{flex-basis:100%;text-align:left;margin-top:8px}
+  .t3-cta{flex-direction:column;align-items:flex-start}
+}
+</style>
+
+<div class="t3">
+<div class="t3-in">
+
+  <!-- Cabecera -->
+  <div class="t3-tag">Ciberseguridad Soberana · On-Premise · NIS2</div>
+  <h2 class="t3-h">TERCIO — Su empresa detecta<br><span>ataques 11 veces más rápido</span></h2>
+  <p class="t3-sub">Sistema cooperativo de defensa activa con IA soberana española. Ningún dato sale de su infraestructura. Validado sobre 300.000 registros reales. 19 tipos de ataque cubiertos.</p>
+
+  <!-- Métricas -->
+  <div class="t3-nums">
+    <div class="t3-num">
+      <div class="n">11×</div>
+      <div class="l">Detección más rápida</div>
+      <div class="sl">4.2 s vs 47 s IDS tradicional</div>
+    </div>
+    <div class="t3-num">
+      <div class="n">96.5%</div>
+      <div class="l">Accuracy validada</div>
+      <div class="sl">AUC 0.99 · 300.000 registros</div>
+    </div>
+    <div class="t3-num">
+      <div class="n">0€</div>
+      <div class="l">Infraestructura cloud necesaria</div>
+      <div class="sl">Hardware propio · Sin dependencias</div>
+    </div>
+  </div>
+
+  <!-- Secuencias -->
+  <div class="t3-sect">Cómo actúa TERCIO · Nodo de defensa</div>
+  <div class="t3-seq" style="margin-bottom:16px">
+    <div class="t3-step" style="border-top:3px solid #10B981">
+      <div class="t3-step-num">01 · Escucha</div>
+      <div class="t3-step-ico">👁️</div>
+      <div class="t3-step-title">Observa el tráfico</div>
+      <div class="t3-step-desc">Salamandra 7B analiza cada flujo de red en tiempo real sobre el hardware existente.</div>
+      <div class="t3-step-stat" style="color:#10B981">Sin GPU dedicada</div>
+    </div>
+    <div class="t3-arr"></div>
+    <div class="t3-step" style="border-top:3px solid #10B981">
+      <div class="t3-step-num">02 · Clasificación</div>
+      <div class="t3-step-ico">🧠</div>
+      <div class="t3-step-title">Detecta la anomalía</div>
+      <div class="t3-step-desc">Clasifica el flujo como benigno o ataque. 96.5% de accuracy sobre 19 tipos de amenaza.</div>
+      <div class="t3-step-stat" style="color:#10B981">AUC 0.99 · RF validado</div>
+    </div>
+    <div class="t3-arr"></div>
+    <div class="t3-step" style="border-top:3px solid #10B981">
+      <div class="t3-step-num">03 · Gossip</div>
+      <div class="t3-step-ico">📡</div>
+      <div class="t3-step-title">Avisa a la red</div>
+      <div class="t3-step-desc">Propaga el patrón de ataque a nodos vecinos del mismo sector en ≈60 ms cifrados.</div>
+      <div class="t3-step-stat" style="color:#10B981">3 saltos · TLS 1.3</div>
+    </div>
+    <div class="t3-arr"></div>
+    <div class="t3-step" style="border-top:3px solid #10B981">
+      <div class="t3-step-num">04 · Consenso</div>
+      <div class="t3-step-ico">🤝</div>
+      <div class="t3-step-title">3 nodos confirman</div>
+      <div class="t3-step-desc">El Sargento distribuido valida la amenaza por consenso. Sin punto único de fallo.</div>
+      <div class="t3-step-stat" style="color:#10B981">89% cobertura de red</div>
+    </div>
+    <div class="t3-arr"></div>
+    <div class="t3-step" style="border-top:3px solid #10B981;background:rgba(16,185,129,.05)">
+      <div class="t3-step-num">05 · Respuesta</div>
+      <div class="t3-step-ico">🛡️</div>
+      <div class="t3-step-title">Bloqueo local</div>
+      <div class="t3-step-desc">Alerta al administrador, aplica reglas de contención locales y registra en Caja Negra.</div>
+      <div class="t3-step-stat" style="color:#10B981">−37% tiempo detección</div>
+    </div>
+  </div>
+
+  <div class="t3-sect">Cómo actúa GÁLVEZ · Orquestador sectorial</div>
+  <div class="t3-seq" style="margin-bottom:52px">
+    <div class="t3-step" style="border-top:3px solid #7C6FE0">
+      <div class="t3-step-num">01 · Recepción</div>
+      <div class="t3-step-ico">📥</div>
+      <div class="t3-step-title">Recibe el Gossip</div>
+      <div class="t3-step-desc">Agrega alertas de todos los TERCIOs del sector. Construye el mapa de amenaza completo.</div>
+      <div class="t3-step-stat" style="color:#7C6FE0">ALIA-40B · BSC Barcelona</div>
+    </div>
+    <div class="t3-arr"></div>
+    <div class="t3-step" style="border-top:3px solid #7C6FE0">
+      <div class="t3-step-num">02 · Análisis</div>
+      <div class="t3-step-ico">🔬</div>
+      <div class="t3-step-title">Identifica el vector</div>
+      <div class="t3-step-desc">ALIA-40B correlaciona patrones, identifica el tipo de ataque y evalúa el alcance sectorial.</div>
+      <div class="t3-step-stat" style="color:#7C6FE0">21 tok/s · 12.77 GB VRAM</div>
+    </div>
+    <div class="t3-arr"></div>
+    <div class="t3-step" style="border-top:3px solid #7C6FE0">
+      <div class="t3-step-num">03 · PROCLAMA</div>
+      <div class="t3-step-ico">📣</div>
+      <div class="t3-step-title">Alerta al sector</div>
+      <div class="t3-step-desc">Emite una PROCLAMA sectorial firmada por TORQUEMADA. Todos los TERCIOs la reciben y actúan.</div>
+      <div class="t3-step-stat" style="color:#7C6FE0">Firma RSA-4096 · Zamora</div>
+    </div>
+    <div class="t3-arr"></div>
+    <div class="t3-step" style="border-top:3px solid #7C6FE0">
+      <div class="t3-step-num">04 · Caja Negra</div>
+      <div class="t3-step-ico">🗄️</div>
+      <div class="t3-step-title">Registra todo</div>
+      <div class="t3-step-desc">Cada acción queda encadenada criptográficamente. Evidencia válida para auditoría NIS2 y ENS.</div>
+      <div class="t3-step-stat" style="color:#7C6FE0">NIS2 · ENS · RGPD</div>
+    </div>
+    <div class="t3-arr"></div>
+    <div class="t3-step" style="border-top:3px solid #7C6FE0;background:rgba(124,111,224,.05)">
+      <div class="t3-step-num">05 · Respuesta</div>
+      <div class="t3-step-ico">⚔️</div>
+      <div class="t3-step-title">Contramedida activa</div>
+      <div class="t3-step-desc">Genera reglas de bloqueo, coordina contramedidas en todo el sector y notifica a CARLOS-EMPEROR.</div>
+      <div class="t3-step-stat" style="color:#7C6FE0">Defensa federada sectorial</div>
+    </div>
+  </div>
+
+  <!-- Arquitectura de agentes -->
+  <div class="t3-sect">Los agentes · Ecosistema Salamandra × ALIA</div>
+  <div class="t3-arch">
+    <div class="t3-arch-grid">
+
+      <!-- CARLOS-EMPEROR -->
+      <div class="t3-agent">
+        <div class="t3-agent-color" style="background:#E24B4A"></div>
+        <div class="t3-agent-main">
+          <div class="t3-agent-ico">🏰</div>
+          <div class="t3-agent-info">
+            <div class="t3-agent-name">CARLOS-EMPEROR <span class="t3-tag-pill t3-tag-r">CPD Zamora</span></div>
+            <div class="t3-agent-model">Mistral Large 3 Q6 · CPD Zamora · 12 hosts</div>
+            <div class="t3-agent-desc">Coordinador global de la red. Fusiona inteligencia de todos los sectores, emite PROCLAMAS y custodia el Arca de las Tres Llaves. El cerebro soberano.</div>
+            <div class="t3-agent-tags">
+              <span class="t3-tag-pill t3-tag-c">PROCLAMAS</span>
+              <span class="t3-tag-pill t3-tag-r">Arca Tres Llaves</span>
+              <span class="t3-tag-pill t3-tag-g">Inteligencia global</span>
+            </div>
+          </div>
+          <div class="t3-agent-stat"><div class="sv" style="color:#E24B4A;font-size:15px;font-weight:800">Mistral<br>Large 3</div><div class="sl">modelo base</div></div>
+        </div>
+      </div>
+
+      <div class="t3-connector">Gossip cifrado · TLS 1.3</div>
+
+      <!-- GÁLVEZ -->
+      <div class="t3-agent">
+        <div class="t3-agent-color" style="background:#7C6FE0"></div>
+        <div class="t3-agent-main">
+          <div class="t3-agent-ico">⚔️</div>
+          <div class="t3-agent-info">
+            <div class="t3-agent-name">GÁLVEZ <span class="t3-tag-pill t3-tag-p">ALIA-40B · BSC Barcelona</span></div>
+            <div class="t3-agent-model">ALIA-40b IQ2_XS · Apache 2.0 · 12.77 GB VRAM · 21 tok/s · latencia 180 ms</div>
+            <div class="t3-agent-desc">Orquestador de sector. Gestiona el protocolo Gossip, genera firmas defensivas y garantiza cumplimiento NIS2 para la PYME. Primer modelo de ciberseguridad soberano europeo.</div>
+            <div class="t3-agent-tags">
+              <span class="t3-tag-pill t3-tag-p">Orquestador</span>
+              <span class="t3-tag-pill t3-tag-c">NIS2 · ENS</span>
+              <span class="t3-tag-pill t3-tag-g">Gossip manager</span>
+            </div>
+          </div>
+          <div class="t3-agent-stat"><div class="sv" style="color:#7C6FE0">40B</div><div class="sl">parámetros</div></div>
+        </div>
+      </div>
+
+      <div class="t3-connector">Gossip sectorial · Shamir Secret Sharing</div>
+
+      <!-- TERCIO -->
+      <div class="t3-agent">
+        <div class="t3-agent-color" style="background:#10B981"></div>
+        <div class="t3-agent-main">
+          <div class="t3-agent-ico">🛡️</div>
+          <div class="t3-agent-info">
+            <div class="t3-agent-name">TERCIO <span class="t3-tag-pill t3-tag-g">Salamandra 7B · BSC</span></div>
+            <div class="t3-agent-model">Salamandra 7B Q4_K_M · Apache 2.0 · 5.19 GB VRAM · 44 tok/s · latencia 1.56 s</div>
+            <div class="t3-agent-desc">Defensor de nodo. Clasifica tráfico en tiempo real, emite alertas locales y participa en el consenso Gossip. Funciona sin GPU dedicada en emergencia. Su lema es su juramento.</div>
+            <div class="t3-agent-tags">
+              <span class="t3-tag-pill t3-tag-g">Defensor nodo</span>
+              <span class="t3-tag-pill t3-tag-c">Inferencia RT</span>
+              <span class="t3-tag-pill t3-tag-o">Sin GPU necesaria</span>
+            </div>
+          </div>
+          <div class="t3-agent-stat"><div class="sv" style="color:#10B981">7B</div><div class="sl">Salamandra BSC</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CAPELLÁN — bloque especial -->
+  <div class="t3-capelan">
+    <div class="t3-capelan-head">
+      <div class="t3-capelan-ico">✝️</div>
+      <div>
+        <div class="t3-capelan-title">Capellán Itinerante · Salamandra 2B</div>
+        <div class="t3-capelan-sub">El guardián silencioso de la integridad del TERCIO · Apache 2.0 · BSC Barcelona</div>
+      </div>
+    </div>
+    <div class="t3-capelan-flow">
+      <div class="t3-cf-step">
+        <div class="t3-cf-step-t">😴 Dormido</div>
+        <div class="t3-cf-step-d">Viaja entre nodos en estado latente. Ocupa mínimos recursos. Nadie lo ve llegar.</div>
+      </div>
+      <div class="t3-cf-arr">→</div>
+      <div class="t3-cf-step">
+        <div class="t3-cf-step-t">🎵 Letanía</div>
+        <div class="t3-cf-step-d">Al despertar, canta la letanía que le corresponde. El TERCIO debe responder con el canto correcto para intercambiar certificados y hashes de integridad.</div>
+      </div>
+      <div class="t3-cf-arr">→</div>
+      <div class="t3-cf-step">
+        <div class="t3-cf-step-t">🔍 Juicio</div>
+        <div class="t3-cf-step-d">Verifica firmas TORQUEMADA, estado de la Caja Negra, coherencia de logs. Decide si el TERCIO está íntegro o comprometido.</div>
+      </div>
+      <div class="t3-cf-arr">→</div>
+      <div class="t3-cf-step">
+        <div class="t3-cf-step-t" style="color:#10B981">✓ Íntegro</div>
+        <div class="t3-cf-step-d">El TERCIO sigue en pie. El Capellán avanza al siguiente nodo. La red continúa.</div>
+      </div>
+      <div class="t3-cf-arr">→</div>
+      <div class="t3-cf-step" style="border-color:rgba(226,75,74,.3)">
+        <div class="t3-cf-step-t" style="color:#E24B4A">⚔️ Comprometido</div>
+        <div class="t3-cf-step-d">El Capellán ejecuta la caída honorable. El TERCIO se apaga con dignidad. <em>El TERCIO no se rinde — muere en combate.</em></div>
+      </div>
+    </div>
+    <div class="t3-capelan-lema">
+      <strong>"El TERCIO no se rinde."</strong> Un nodo comprometido no es derrotado — es relevado con honor. La red continúa. La línea no cede.
+    </div>
+  </div>
+
+  <!-- Planes -->
+  <div class="t3-sect">Planes · Sin coste inicial · Plazas limitadas</div>
+
+  <!-- fila superior: 2 planes anchos -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+
+    <!-- FREE — 2 TERCIOs -->
+    <div class="t3-plan" style="border-top:3px solid var(--di)">
+      <div class="t3-pname" style="color:var(--mu)">TERCIO Centinela · Sin coste</div>
+      <div class="t3-pprice" style="color:var(--mu)">0 <span>€ · máx. 2 nodos por empresa</span></div>
+      <div class="t3-pdesc">Despliegue libremente. Sus logs nutren la inteligencia colectiva de la red. Sin Sargento, sin Gossip entre sectores.</div>
+      <hr>
+      <div class="t3-fi">Hasta 2 nodos TERCIO</div>
+      <div class="t3-fi">Detección local en tiempo real</div>
+      <div class="t3-fi">Salamandra 7B · modelo soberano BSC</div>
+      <div class="t3-fi">Capellán Itinerante incluido</div>
+      <div class="t3-fi">Logs anonimizados contribuyen a la red</div>
+      <div class="t3-fi no">Sin Sargento distribuido (mín. 3 nodos)</div>
+      <div class="t3-fi no">Sin Gossip sectorial</div>
+      <div class="t3-fi no">Sin Caja Negra ni NIS2</div>
+    </div>
+
+    <!-- ESCUADRA — 3 nodos, 12€ -->
+    <div class="t3-plan" style="border-top:3px solid var(--c)">
+      <div class="t3-pname">TERCIO Escuadra</div>
+      <div class="t3-pprice">12 <span>€ / mes · plazas limitadas</span></div>
+      <div class="t3-pdesc">3 nodos forman un Sargento distribuido. Primera línea de defensa cooperativa con cobertura regulatoria parcial.</div>
+      <hr>
+      <div class="t3-fi">3 nodos TERCIO (1 Sargento distribuido)</div>
+      <div class="t3-fi">Detección cooperativa Gossip</div>
+      <div class="t3-fi">Salamandra 7B · Apache 2.0 · BSC</div>
+      <div class="t3-fi">Capellán Itinerante incluido</div>
+      <div class="t3-fi">Cumplimiento ENS · AI Act · RGPD</div>
+      <div class="t3-fi">NIS2 parcial</div>
+      <div class="t3-fi no">Sin Caja Negra certificada</div>
+      <div class="t3-fi no">Sin GÁLVEZ · Sin Zamora</div>
+    </div>
+
+  </div>
+
+  <!-- fila inferior: 2 planes anchos -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px">
+
+    <!-- BUSINESS SaaS -->
+    <div class="t3-plan feat" style="position:relative">
+      <div class="t3-pbadge">Más contratado</div>
+      <div class="t3-pname">TERCIO Business · SaaS</div>
+
+      <!-- Precio -->
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:6px">
+        <div class="t3-pprice">100 <span>€ / mes</span></div>
+        <div style="font-size:18px;color:var(--di);text-decoration:line-through;font-weight:700">200€</div>
+      </div>
+      <div style="font-size:12px;color:var(--go);font-weight:700;margin-bottom:4px">
+        Precio de lanzamiento garantizado 5 años · 50% de descuento
+      </div>
+
+      <!-- Contador licencias -->
+      <div id="t3-counter" style="display:flex;align-items:center;gap:10px;background:rgba(226,75,74,.08);border:1px solid rgba(226,75,74,.25);border-radius:8px;padding:10px 14px;margin-bottom:14px">
+        <div style="font-size:20px">🔥</div>
+        <div style="flex:1">
+          <div style="font-size:11px;color:var(--mu);margin-bottom:4px">Licencias de lanzamiento disponibles</div>
+          <div style="background:rgba(0,0,0,.3);border-radius:4px;height:6px;overflow:hidden">
+            <div id="t3-bar" style="height:100%;background:linear-gradient(90deg,#E24B4A,#F97316);border-radius:4px;transition:width 1s ease"></div>
+          </div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div id="t3-left" style="font-size:22px;font-weight:800;color:#E24B4A;line-height:1">—</div>
+          <div style="font-size:10px;color:var(--di)">de 50</div>
+        </div>
+      </div>
+
+      <div class="t3-pdesc">12 nodos incluidos (4 Sargentos). Caja Negra en CPD Zamora. GÁLVEZ SaaS en su servidor. Cada TERCIO adicional: +1 €/mes.</div>
+      <hr>
+      <div class="t3-fi">12 nodos TERCIO incluidos (4 Sargentos)</div>
+      <div class="t3-fi">+1 €/mes por TERCIO adicional</div>
+      <div class="t3-fi">GÁLVEZ SaaS · ALIA-40B · en su servidor</div>
+      <div class="t3-fi">Caja Negra en CPD Zamora · NIS2 completa</div>
+      <div class="t3-fi">Gossip sectorial entre todos los nodos</div>
+      <div class="t3-fi">Panel de alertas unificado</div>
+      <div class="t3-fi">Informe regulatorio mensual</div>
+      <div class="t3-fi no">Sin contramedidas activas</div>
+    </div>
+
+    <script>
+    (function(){
+      // Licencias vendidas — cambia este número cuando vendas una
+      var VENDIDAS = 7;
+      var TOTAL = 50;
+      var restantes = TOTAL - VENDIDAS;
+      var pct = (VENDIDAS / TOTAL) * 100;
+      function init(){
+        var el = document.getElementById('t3-left');
+        var bar = document.getElementById('t3-bar');
+        if(!el || !bar) return;
+        el.textContent = restantes;
+        bar.style.width = pct + '%';
+      }
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', init);
+      } else { init(); }
+    })();
+    </script>
+
+    <!-- ENTERPRISE on-premise -->
+    <div class="t3-plan" style="border-top:3px solid var(--go)">
+      <div class="t3-pname" style="color:var(--go)">TERCIO Enterprise · On-Premise</div>
+      <div class="t3-pprice">— <span>a consultar</span></div>
+      <div class="t3-pdesc">GÁLVEZ en TOWIN-TORRE en su sede. Caja Negra local. Contramedidas activas. NIS2 certificada con CISO humano.</div>
+      <hr>
+      <div class="t3-fi">Nodos ilimitados</div>
+      <div class="t3-fi">GÁLVEZ en TOWIN-TORRE on-premise</div>
+      <div class="t3-fi">Caja Negra local · NIS2 certificada</div>
+      <div class="t3-fi">Contramedidas activas automáticas</div>
+      <div class="t3-fi">Coordinación CARLOS-EMPEROR · Zamora</div>
+      <div class="t3-fi">SLA 24/7 · respuesta &lt;1h</div>
+      <div class="t3-fi">Fine-tuning sectorial dedicado</div>
+      <div class="t3-fi">CISO humano certificador incluido</div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="t3-cta">
+    <div>
+      <h3>Su red protegida esta semana</h3>
+      <p>3 nodos instalados en menos de 2 horas. <strong>Sin coste inicial · Plazas limitadas.</strong> Cuando vea los resultados, decide si escala.</p>
+    </div>
+    <a href="/contacto" class="t3-btn">Solicitar plaza →</a>
+  </div>
+
+</div>
+</div>
